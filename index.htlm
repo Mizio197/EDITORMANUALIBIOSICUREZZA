@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore Manuali - Studio Summit</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+</head>
+<body>
+
+    <main class="container">
+        <div class="header-logo">
+            <h1>STUDIO SUMMIT S.R.L.</h1>
+            <p>Generatore Manuale di Corretta Prassi (Benessere & Biosicurezza)</p>
+        </div>
+
+        <article>
+            <header><strong>Step 1: Anagrafica Aziendale e Responsabili</strong></header>
+            
+            <form id="manualForm">
+                <div class="grid">
+                    <label>
+                        Ragione Sociale
+                        <input type="text" id="ragioneSociale" placeholder="Es. Az. Agr. Rossi Mario" required>
+                    </label>
+                    <label>
+                        Codice Aziendale (ASL)
+                        <input type="text" id="codiceAziendale" placeholder="Es. IT000MN123" required>
+                    </label>
+                </div>
+
+                <div class="grid">
+                    <label>
+                        Indirizzo Sede Legale
+                        <input type="text" id="sedeLegale" placeholder="Via Roma 1, Mantova" required>
+                    </label>
+                    <label>
+                        Indirizzo Operativo (Allevamento)
+                        <input type="text" id="sedeOperativa" placeholder="Se diverso dalla legale">
+                    </label>
+                </div>
+
+                <div class="grid">
+                    <label>
+                        Partita IVA
+                        <input type="text" id="piva" required>
+                    </label>
+                    <label>
+                        Indirizzo Produttivo
+                        <select id="indirizzoProduttivo">
+                            <option value="Bovini da Latte">Bovini da Latte</option>
+                            <option value="Bovini da Carne">Bovini da Carne</option>
+                            <option value="Misto">Misto</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="grid">
+                    <label>
+                        Numero Capi Totali
+                        <input type="number" id="numCapi" placeholder="0">
+                    </label>
+                    <label>
+                        Medico Veterinario Aziendale
+                        <input type="text" id="veterinario" placeholder="Dr. Nome Cognome">
+                    </label>
+                </div>
+
+                <hr>
+                
+                <div class="grid">
+                    <label>
+                        Responsabile BIOSICUREZZA
+                        <input type="text" id="respBiosicurezza" placeholder="Nome e Cognome" required>
+                    </label>
+                    <label>
+                        Responsabile BENESSERE
+                        <input type="text" id="respBenessere" placeholder="Nome e Cognome" required>
+                    </label>
+                </div>
+                <label>
+                    Data Rilascio Attestato Corso Benessere
+                    <input type="date" id="dataCorsoBenessere" required>
+                </label>
+
+                <hr>
+
+                <header><strong>Step 2: Personalizzazione Operativa</strong></header>
+                <label>
+                    Frequenza Controlli Pest Control (Studio Summit)
+                    <select id="freqPestControl" required>
+                        <option value="Quadrimestrale" selected>Quadrimestrale (Standard)</option>
+                        <option value="Trimestrale">Trimestrale</option>
+                        <option value="Bimestrale">Bimestrale</option>
+                        <option value="Mensile">Mensile</option>
+                    </select>
+                    <small>Il testo della procedura POS 003 si adatterà automaticamente a questa scelta.</small>
+                </label>
+
+                <label for="planimetriaFile">Allegato: Planimetria Pest Control (Immagine)</label>
+                <input type="file" id="planimetriaFile" accept="image/*">
+                <small>Carica qui la planimetria (JPG o PNG). Verrà inserita automaticamente negli allegati.</small>
+
+                <button type="submit" style="margin-top: 20px; background-color: #004d40;">Genera Manuale PDF</button>
+            </form>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
